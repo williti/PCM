@@ -1,0 +1,112 @@
+PCM/
+├── frontend/
+│   ├── src/
+│   │   ├── app/
+│   │   │   ├── layout.tsx
+│   │   │   ├── providers.tsx
+│   │   │   └── routes.tsx
+│   │   ├── assets/
+│   │   │   ├── fonts/
+│   │   │   ├── icons/
+│   │   │   └── images/
+│   │   ├── components/
+│   │   │   ├── common/
+│   │   │   ├── forms/
+│   │   │   ├── layout/
+│   │   │   └── ui/
+│   │   ├── features/
+│   │   │   ├── auth/
+│   │   │   ├── dashboard/
+│   │   │   ├── equipment/
+│   │   │   ├── maintenance/
+│   │   │   ├── reports/
+│   │   │   └── notifications/
+│   │   ├── hooks/
+│   │   │   ├── api/
+│   │   │   ├── auth/
+│   │   │   └── common/
+│   │   ├── lib/
+│   │   │   ├── api/
+│   │   │   ├── constants/
+│   │   │   └── utils/
+│   │   ├── services/
+│   │   │   ├── api/
+│   │   │   ├── auth/
+│   │   │   └── storage/
+│   │   ├── store/
+│   │   │   ├── slices/
+│   │   │   └── hooks/
+│   │   ├── styles/
+│   │   │   ├── global/
+│   │   │   ├── themes/
+│   │   │   └── variables/
+│   │   ├── types/
+│   │   │   ├── api/
+│   │   │   ├── models/
+│   │   │   └── common/
+│   │   └── utils/
+│   │       ├── formatters/
+│   │       ├── validators/
+│   │       └── helpers/
+│   ├── public/
+│   ├── package.json
+│   └── tsconfig.json
+│
+├── backend/
+│   ├── src/
+│   │   ├── config/
+│   │   │   ├── database.ts
+│   │   │   ├── auth.ts
+│   │   │   └── env.ts
+│   │   ├── modules/
+│   │   │   ├── equipment/
+│   │   │   │   ├── controllers/
+│   │   │   │   ├── services/
+│   │   │   │   ├── repositories/
+│   │   │   │   ├── routes/
+│   │   │   │   └── models/
+│   │   │   ├── maintenance/
+│   │   │   │   ├── controllers/
+│   │   │   │   ├── services/
+│   │   │   │   ├── repositories/
+│   │   │   │   ├── routes/
+│   │   │   │   └── models/
+│   │   │   └── users/
+│   │   │       ├── controllers/
+│   │   │       ├── services/
+│   │   │       ├── repositories/
+│   │   │       ├── routes/
+│   │   │       └── models/
+│   │   ├── shared/
+│   │   │   ├── middlewares/
+│   │   │   ├── errors/
+│   │   │   ├── utils/
+│   │   │   └── infra/
+│   │   │       ├── database/
+│   │   │       └── http/
+│   │   ├── types/
+│   │   │   ├── express/
+│   │   │   └── models/
+│   │   └── app.ts
+│   ├── prisma/
+│   │   ├── schema.prisma
+│   │   ├── migrations/
+│   │   └── seed/
+│   │       └── data/
+│   ├── tests/
+│   │   ├── integration/
+│   │   ├── unit/
+│   │   └── fixtures/
+│   ├── docs/
+│   │   ├── api/
+│   │   └── database/
+│   ├── scripts/
+│   │   ├── migrations/
+│   │   └── seeds/
+│   ├── logs/
+│   ├── package.json
+│   └── tsconfig.json
+│
+├── .env
+├── .gitignore
+└── README.md

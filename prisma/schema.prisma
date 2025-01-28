@@ -1,0 +1,214 @@
+// This is your Prisma schema file
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+model Equipment {
+  id              String    @id @default(uuid())
+  code            String    @unique // ex: c1, C05
+  name            String    // ex: CUBO (C1)
+  type            String    // Máquina/Equipamento
+  powerCV         Float?
+  amperage        Float?
+  powerKW         Float?
+  capacity        String?
+  energyCostHour  Float?
+  nr12Compliant   Boolean   @default(false)
+  popAvailable    Boolean   @default(false)
+  equipmentValue  Float?
+  manufacturingYear DateTime?
+  model           String?
+  serialNumber    String?
+  observations    String?
+  
+  // Relations
+  sector          Sector?    @relation(fields: [sectorId], references: [id])
+  sectorId        String?
+  operators       EquipmentOperator[]
+  workOrders      WorkOrder[]
+  documents       TechnicalDocument[]
+  spareParts      SparePart[]
+  indicators      MaintenanceIndicator[]
+  
+  createdAt       DateTime  @default(now())
+  updatedAt       DateTime  @updatedAt
+
+  @@map("equipment")
+}
+
+model Sector {
+  id          String      @id @default(uuid())
+  name        String      @unique
+  equipment   Equipment[]
+  createdAt   DateTime    @default(now())
+  updatedAt   DateTime    @updatedAt
+
+  @@map("sectors")
+}
+
+model User {
+  id          String    @id @default(uuid())
+  name        String
+  email       String?   @unique
+  role        String
+  active      Boolean   @default(true)
+  workOrders  WorkOrder[]
+  equipments  EquipmentOperator[]
+  maintenanceHistory MaintenanceHistory[]
+  createdAt   DateTime  @default(now())
+  updatedAt   DateTime  @updatedAt
+
+  @@map("users")
+}
+
+model EquipmentOperator {
+  equipment     Equipment  @relation(fields: [equipmentId], references: [id])
+  equipmentId   String
+  operator      User      @relation(fields: [operatorId], references: [id])
+  operatorId    String
+  createdAt     DateTime  @default(now())
+
+  @@id([equipmentId, operatorId])
+  @@map("equipment_operators")
+}
+
+model WorkOrder {
+  id                String    @id @default(uuid())
+  number            Int       @unique @default(autoincrement())
+  openedAt          DateTime
+  deadline          DateTime
+  completedAt       DateTime?
+  serviceCost       Float?
+  materialCost      Float?
+  otherCosts        Float?
+  serviceTime       String?   // Stored as string in format "HH:mm"
+  observations      String?
+  partsUsed         String?
+  deadlineObs       String?   // ATRASADO, SHOW, etc
+  
+  // Relations
+  equipment         Equipment          @relation(fields: [equipmentId], references: [id])
+  equipmentId       String
+  responsible       User               @relation(fields: [responsibleId], references: [id])
+  responsibleId     String
+  priority          Priority           @relation(fields: [priorityId], references: [id])
+  priorityId        String
+  maintenanceType   MaintenanceType    @relation(fields: [maintenanceTypeId], references: [id])
+  maintenanceTypeId String
+  maintenanceArea   MaintenanceArea    @relation(fields: [maintenanceAreaId], references: [id])
+  maintenanceAreaId String
+  status            Status             @relation(fields: [statusId], references: [id])
+  statusId          String
+  history           MaintenanceHistory[]
+  
+  createdAt         DateTime  @default(now())
+  updatedAt         DateTime  @updatedAt
+
+  @@map("work_orders")
+}
+
+model Priority {
+  id          String      @id @default(uuid())
+  name        String      @unique
+  color       String?
+  workOrders  WorkOrder[]
+  createdAt   DateTime    @default(now())
+  updatedAt   DateTime    @updatedAt
+
+  @@map("priorities")
+}
+
+model MaintenanceType {
+  id          String      @id @default(uuid())
+  name        String      @unique
+  workOrders  WorkOrder[]
+  createdAt   DateTime    @default(now())
+  updatedAt   DateTime    @updatedAt
+
+  @@map("maintenance_types")
+}
+
+model MaintenanceArea {
+  id          String      @id @default(uuid())
+  name        String      @unique
+  workOrders  WorkOrder[]
+  createdAt   DateTime    @default(now())
+  updatedAt   DateTime    @updatedAt
+
+  @@map("maintenance_areas")
+}
+
+model Status {
+  id          String      @id @default(uuid())
+  name        String      @unique
+  color       String?
+  workOrders  WorkOrder[]
+  createdAt   DateTime    @default(now())
+  updatedAt   DateTime    @updatedAt
+
+  @@map("status")
+}
+
+model MaintenanceHistory {
+  id          String    @id @default(uuid())
+  workOrder   WorkOrder @relation(fields: [workOrderId], references: [id])
+  workOrderId String
+  status      Status    @relation(fields: [statusId], references: [id])
+  statusId    String
+  user        User      @relation(fields: [userId], references: [id])
+  userId      String
+  observations String?
+  createdAt   DateTime  @default(now())
+
+  @@map("maintenance_history")
+}
+
+model TechnicalDocument {
+  id          String    @id @default(uuid())
+  title       String
+  type        String    // Manual, Desenho, Certificado, etc
+  fileUrl     String
+  equipment   Equipment @relation(fields: [equipmentId], references: [id])
+  equipmentId String
+  createdAt   DateTime  @default(now())
+  updatedAt   DateTime  @updatedAt
+
+  @@map("technical_documents")
+}
+
+model SparePart {
+  id          String    @id @default(uuid())
+  code        String    @unique
+  name        String
+  description String?
+  minStock    Int       @default(0)
+  currentStock Int      @default(0)
+  unitCost    Float
+  location    String?   // Localização no almoxarifado
+  equipment   Equipment[] // Equipamentos que usam esta peça
+  createdAt   DateTime  @default(now())
+  updatedAt   DateTime  @updatedAt
+
+  @@map("spare_parts")
+}
+
+model MaintenanceIndicator {
+  id              String    @id @default(uuid())
+  equipmentId     String
+  equipment       Equipment @relation(fields: [equipmentId], references: [id])
+  mtbf            Float?    // Mean Time Between Failures (horas)
+  mttr            Float?    // Mean Time To Repair (horas)
+  availability    Float?    // Disponibilidade (%)
+  reliability     Float?    // Confiabilidade (%)
+  oee             Float?    // Overall Equipment Effectiveness (%)
+  period          DateTime  // Período de referência
+  createdAt       DateTime  @default(now())
+  updatedAt       DateTime  @updatedAt
+
+  @@map("maintenance_indicators")
+}

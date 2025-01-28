@@ -1,0 +1,14 @@
+id,code,name,type,powerCV,amperage,powerKW,sectorId,capacity,energyCostHour,nr12Compliant,popAvailable,equipmentValue,manufacturingYear
+1,c1,CUBO (C1),Máquina,4,8,3,1,1000,2.10,false,false,20000.00,2025-01-01
+2,C05,CUBO500 (c05),Máquina,3,5,2.25,1,500,1.58,false,false,15000.00,2000-01-01
+3,R01,RIBBON01 (r01),Máquina,15,20,11.25,1,500,7.88,false,false,15000.00,1974-12-01
+4,RF-A,Extrusora RF (A),Máquina,50,60,37.5,2,130,26.25,false,false,450000.00,2005-03-01
+5,TT-B,Extrusora TT (B),Máquina,20,30,15,2,40,10.50,false,false,300000.00,2004-11-01
+6,MT-C,Extrusora MT (C),Máquina,70,80,52.5,2,130,36.75,false,false,450000.00,2018-08-01
+7,M10,ACM10 (m10),Máquina,10,10,7.5,3,75,5.25,false,false,150000.00,2025-01-01
+8,M40,ACM40 (m40),Máquina,30,40,22.5,3,250,15.75,false,false,250000.00,2000-01-01
+9,E-LAB,Extrusora LAB (lab),Máquina,3,2,2.25,4,,1.58,false,false,30000.00,1974-12-01
+10,CHI-01,Chiller ( NOVO),Máquina,,22,0,5,,,false,false,100000.00,2005-03-01
+11,CHI-02,Chiller 02,Máquina,,19,0,5,,,false,false,80000.00,2004-11-01
+12,BT400,Betoneira,Equipamento,3,5,2.25,6,,1.58,false,false,3500.00,2018-08-01
+13,EXA-30,EXAUSTOR 30,Máquina,30,60,22.5,3,,15.75,false,false,40000.00,2025-01-01

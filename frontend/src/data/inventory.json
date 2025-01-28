@@ -1,0 +1,61 @@
+{
+  "lastUpdate": "2025-01-25",
+  "equipment": [
+    {
+      "code": "CUBO-C1",
+      "name": "CUBO C1",
+      "type": "Máquina",
+      "sector": "Produção",
+      "manufacturingYear": 2020,
+      "power": null,
+      "energyCostPerHour": null
+    },
+    {
+      "code": "PRENSA-P2",
+      "name": "PRENSA P2",
+      "type": "Máquina",
+      "sector": "Produção",
+      "manufacturingYear": 2019,
+      "power": null,
+      "energyCostPerHour": null
+    },
+    {
+      "code": "TORNO-T3",
+      "name": "TORNO T3",
+      "type": "Máquina",
+      "sector": "Usinagem",
+      "manufacturingYear": 2018,
+      "power": null,
+      "energyCostPerHour": null
+    },
+    {
+      "code": "FRESA-F1",
+      "name": "FRESA F1",
+      "type": "Máquina",
+      "sector": "Usinagem",
+      "manufacturingYear": 2021,
+      "power": null,
+      "energyCostPerHour": null
+    },
+    {
+      "code": "RET-R2",
+      "name": "RETÍFICA R2",
+      "type": "Máquina",
+      "sector": "Acabamento",
+      "manufacturingYear": 2020,
+      "power": null,
+      "energyCostPerHour": null
+    }
+  ],
+  "statistics": {
+    "totalEquipment": 5,
+    "byType": {
+      "Máquina": 5
+    },
+    "bySector": {
+      "Produção": 2,
+      "Usinagem": 2,
+      "Acabamento": 1
+    }
+  }
+}

@@ -1,0 +1,52 @@
+⠙ �⠹GUIA DE INICIALIZAÇÃO DO SERVIDOR PCM
+
+Este guia fornece instruções passo a passo para iniciar o ambiente de desenvolvimento do PCM.
+
+PRÉ-REQUISITOS:
+- Node.js instalado (versão recomendada: 18.x ou superior)
+- npm (gerenciador de pacotes do Node.js)
+- Git instalado
+
+PASSO 1: PREPARAR O BACKEND
+1. Abra um terminal
+2. Navegue até a pasta do backend:
+   cd backend
+
+3. Instale as dependências:
+   npm install
+
+4. Configure o banco de dados:
+   npx prisma generate
+   npx prisma migrate dev
+
+5. Inicie o servidor backend:
+   npm run dev
+
+O backend estará rodando em: http://localhost:3000
+
+PASSO 2: PREPARAR O FRONTEND
+1. Abra um novo terminal
+2. Navegue até a pasta do frontend:
+   cd frontend
+
+3. Instale as dependências:
+   npm install
+
+4. Inicie o servidor de desenvolvimento:
+   npm run dev
+
+O frontend estará disponível em: http://localhost:5173
+
+VERIFICAÇÃO:
+1. Backend: Acesse http://localhost:3000 - deve mostrar uma mensagem de API funcionando
+2. Frontend: Acesse http://localhost:5173 - deve carregar a interface do PCM
+
+OBSERVAÇÕES:
+- Mantenha ambos os terminais (backend e frontend) abertos
+- O backend deve estar rodando para o frontend funcionar corretamente
+- Para parar os servidores: pressione Ctrl+C em cada terminal
+
+Em caso de problemas:
+1. Verifique se as portas 3000 e 5173 estão disponíveis
+2. Certifique-se de que todas as dependências foram instaladas corretamente
+3. Verifique os logs de erro nos terminais

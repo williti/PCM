@@ -1,0 +1,24 @@
+Por favor, analise o projeto PCM com as seguintes diretrizes:
+
+1. Consulte o arquivo AI_CONTEXT.md na raiz do projeto para entender:
+   - A estrutura geral do projeto
+   - As últimas atualizações realizadas
+   - As diretrizes de desenvolvimento
+
+2. Verifique especialmente os seguintes arquivos de referência:
+   - README.md na raiz
+   - frontend/README.md
+   - _docs/technical/* para detalhes técnicos
+   - _docs/guides/DEVELOPMENT.md para padrões de desenvolvimento
+
+3. Mantenha em mente:
+   - A estrutura do banco de dados em _docs/technical/02-DATABASE.md
+   - A arquitetura frontend em _docs/technical/03-FRONTEND.md
+   - O histórico de alterações em _docs/conversation_backups/
+
+4. Antes de qualquer modificação:
+   - Verifique as atualizações em andamento no AI_CONTEXT.md
+   - Consulte as diretrizes de desenvolvimento
+   - Siga os padrões estabelecidos para código e estrutura
+
+Por favor, confirme que você analisou esses arquivos e está pronto para continuar o desenvolvimento do projeto.

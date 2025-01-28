@@ -1,0 +1,6 @@
+id,name,color
+1,Não Iniciada,#FFA500
+2,Em Andamento,#0000FF
+3,Finalizada,#008000
+4,Cancelado,#FF0000
+5,Programada,#800080

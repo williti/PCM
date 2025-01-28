@@ -1,0 +1,7 @@
+id,name,email,role,active
+1,Lima,lima@empresa.com,Técnico,true
+2,Itiro,itiro@empresa.com,Técnico,true
+3,Moretti,moretti@empresa.com,Técnico,true
+4,Andre,andre@empresa.com,Operador,true
+5,Marcos,marcos@empresa.com,Operador,true
+6,José,jose@empresa.com,Operador,true

@@ -1,0 +1,6 @@
+id,number,openedAt,deadline,completedAt,equipmentId,responsibleId,priorityId,maintenanceTypeId,maintenanceAreaId,statusId,serviceCost,materialCost,otherCosts,serviceTime,deadlineObs
+1,1,2025-01-01,2025-01-03,,2,1,1,1,1,3,1500.00,800.00,500.00,1:00,ATRASADO
+2,2,2025-01-01,2025-01-02,2025-01-02,26,2,3,3,5,3,0.00,0.00,0.00,3:00,SHOW
+3,3,2025-01-02,2025-01-03,2025-01-04,4,1,3,1,1,3,800.00,50.00,0.00,2:00,SHOW
+4,4,2025-01-02,2025-01-07,2025-01-05,5,1,1,1,3,3,2000.00,1200.00,800.00,,SHOW
+5,5,2025-01-03,2025-01-08,,6,2,2,2,2,2,250.00,50.00,0.00,,ATRASADO
