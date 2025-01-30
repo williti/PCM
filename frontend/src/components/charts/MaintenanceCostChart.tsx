@@ -11,7 +11,7 @@ import {
   Legend,
 } from 'chart.js';
 import { Chart } from 'react-chartjs-2';
-import { MAINTENANCE_AREAS, MaintenanceArea } from '../../types/maintenance';
+import { MAINTENANCE_AREAS, MaintenanceArea, Equipment } from '../../types/maintenance';
 
 ChartJS.register(
   CategoryScale,
@@ -26,9 +26,18 @@ ChartJS.register(
 
 interface MaintenanceCostChartProps {
   selectedArea: MaintenanceArea;
-  selectedYear: number;
+  selectedYear: string;
   selectedMonth: number;
-  selectedEquipments: string[];
+  selectedEquipment1?: string;
+  selectedEquipment2?: string;
+  selectedEquipment3?: string;
+  onYearChange: (year: string) => void;
+  onMonthChange: (month: number) => void;
+  onEquipment1Change: (equipment: string) => void;
+  onEquipment2Change: (equipment: string) => void;
+  onEquipment3Change: (equipment: string) => void;
+  onAreaChange: (area: MaintenanceArea) => void;
+  getAvailableEquipments: (position: number) => Equipment[];
 }
 
 const MONTHS = [
@@ -36,7 +45,6 @@ const MONTHS = [
   'Julho', 'Agosto', 'Setembro', 'Outubro', 'Novembro', 'Dezembro'
 ];
 
-// Dados mockados para teste
 const mockAreaData = {
   'MECÂNICA': [15600, 14500, 16700, 15900, 17200, 15600],
   'ELÉTRICA': [28900, 27500, 29100, 28400, 27900, 28900],
@@ -57,13 +65,22 @@ export const MaintenanceCostChart: React.FC<MaintenanceCostChartProps> = ({
   selectedArea,
   selectedYear,
   selectedMonth,
-  selectedEquipments,
+  selectedEquipment1,
+  selectedEquipment2,
+  selectedEquipment3,
+  onYearChange,
+  onMonthChange,
+  onEquipment1Change,
+  onEquipment2Change,
+  onEquipment3Change,
+  onAreaChange,
+  getAvailableEquipments,
 }) => {
   // Calcula os últimos 6 meses a partir do mês selecionado
   const semesterMonths = useMemo(() => {
     const result = [];
     let currentMonth = selectedMonth;
-    let currentYear = selectedYear;
+    let currentYear = parseInt(selectedYear);
 
     for (let i = 0; i < 6; i++) {
       if (currentMonth === 0) {
@@ -189,7 +206,7 @@ export const MaintenanceCostChart: React.FC<MaintenanceCostChartProps> = ({
 
   const getChartData = () => {
     const labels = semesterMonths.map(m => m.label);
-    const datasets = [];
+    const datasets: any[] = [];
 
     // Adiciona dados de área se selecionada
     if (selectedArea !== 'TODAS') {
@@ -203,12 +220,13 @@ export const MaintenanceCostChart: React.FC<MaintenanceCostChartProps> = ({
         borderWidth: 1,
         borderRadius: 4,
         maxBarThickness: 50,
+        stack: 'Stack 0', // Adiciona stack para empilhar
         visible: true,
       });
     } else {
-      // Se "TODAS" estiver selecionado, mostra todas as áreas como barras
+      // Se "TODAS" estiver selecionado, mostra todas as áreas como barras empilhadas
       Object.entries(mockAreaData).forEach(([area, data], index) => {
-        const hue = (index * 30) % 360; // Gera cores diferentes para cada área
+        const hue = (index * 30) % 360;
         datasets.push({
           type: 'bar' as const,
           label: area,
@@ -218,12 +236,16 @@ export const MaintenanceCostChart: React.FC<MaintenanceCostChartProps> = ({
           borderWidth: 1,
           borderRadius: 4,
           maxBarThickness: 50,
+          stack: 'Stack 0', // Adiciona stack para empilhar
           visible: true,
         });
       });
     }
 
-    // Adiciona linhas para equipamentos selecionados
+    // Adiciona linhas para equipamentos selecionados (mantém como está)
+    const selectedEquipments = [selectedEquipment1, selectedEquipment2, selectedEquipment3]
+      .filter((eq): eq is string => eq !== undefined && eq !== '');
+
     selectedEquipments.forEach((equipment, index) => {
       const equipmentData = mockEquipmentData[equipment] || Array(6).fill(0);
       datasets.push({
