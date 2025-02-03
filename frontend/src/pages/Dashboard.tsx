@@ -1,4 +1,4 @@
-import React, { useState, useMemo } from 'react';
+import React, { useState, useMemo, useEffect } from 'react';
 import {
   Box,
   Grid,
@@ -42,6 +42,7 @@ import { TotalCard } from '../components/TotalCard';
 import { MAINTENANCE_AREAS, MaintenanceArea } from '../types/maintenance';
 import inventory from '../data/inventory.json';
 import { GaugeChart } from '../components/charts/GaugeChart';
+import { dashboardService } from '../services/api';
 
 const MONTHS = [
   'Janeiro', 'Fevereiro', 'Março', 'Abril', 'Maio', 'Junho',
@@ -57,19 +58,28 @@ export const Dashboard: React.FC = () => {
     equipment2: '',
     equipment3: '',
   });
+  const [dashboardData, setDashboardData] = useState<any>(null);
+
+  useEffect(() => {
+    const loadDashboardData = async () => {
+      const data = await dashboardService.getDashboardData();
+      setDashboardData(data);
+    };
+    loadDashboardData();
+  }, []);
 
   // Dados mockados para os totais
-  const mockTotalData = {
-    totalGeral: 89674.75,
+  const mockTotalData = dashboardData || {
+    totalGeral: 0,
     totalPorArea: {
-      'TODAS': 89674.75,
-      'MECÂNICA': 15600.00,
-      'ELÉTRICA': 28900.00,
-      'HIDRÁULICA': 8874.75,
-      'ELETRÔNICA': 12500.00,
-      'PNEUMÁTICA': 7500.00,
-      'INSTRUMENTAÇÃO': 9800.00,
-      'AUTOMAÇÃO': 6500.00,
+      'TODAS': 0,
+      'MECÂNICA': 0,
+      'ELÉTRICA': 0,
+      'HIDRÁULICA': 0,
+      'ELETRÔNICA': 0,
+      'PNEUMÁTICA': 0,
+      'INSTRUMENTAÇÃO': 0,
+      'AUTOMAÇÃO': 0,
     }
   };
 
@@ -235,7 +245,7 @@ export const Dashboard: React.FC = () => {
                       Total em {MONTHS[new Date().getMonth()]}
                     </Typography>
                     <Typography variant="h6" sx={{ fontWeight: 500 }}>
-                      R$ 89.674,75
+                      R$ {mockTotalData.totalGeral}
                     </Typography>
                   </Box>
                 </Paper>
@@ -260,7 +270,7 @@ export const Dashboard: React.FC = () => {
                       Preventiva em {MONTHS[new Date().getMonth()]}
                     </Typography>
                     <Typography variant="h6" sx={{ fontWeight: 500 }}>
-                      R$ 35.869,90
+                      R$ {mockTotalData.totalPorArea['TODAS']}
                     </Typography>
                   </Box>
                 </Paper>
