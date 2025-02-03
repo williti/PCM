@@ -70,6 +70,20 @@
    - [ ] Registrar problemas encontrados
    - [ ] Sugerir melhorias futuras
 
+4. SUGESTÃO DE COMMIT:
+   - [ ] Gerar nome do commit seguindo convenção:
+     ```
+     <tipo>(<escopo>): <descrição curta>
+
+     <descrição detalhada em tópicos>
+
+     <referências ou issues>
+     ```
+   - [ ] Tipos: feat, fix, docs, style, refactor, test, chore
+   - [ ] Escopo: área específica do projeto (ex: auth, api, ui)
+   - [ ] Incluir todas alterações relevantes nos tópicos
+   - [ ] Referenciar números de issues quando aplicável
+
 ## PADRÕES DE BACKUP:
 
 1. LOCALIZAÇÃO DE BACKUPS:

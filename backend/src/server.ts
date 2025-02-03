@@ -26,6 +26,24 @@ app.get('/', (req, res) => {
   res.json({ message: 'API PCM está funcionando!' });
 });
 
+// Endpoint de teste
+app.get('/api/test', (req, res) => {
+  res.json({ 
+    status: "success",
+    message: "Conexão backend OK!",
+    timestamp: new Date().toISOString()
+  });
+});
+
+// Endpoint de teste
+app.get('/api/test', (req, res) => {
+  res.json({ 
+    status: "success",
+    message: "Conexão backend OK!",
+    timestamp: new Date().toISOString()
+  });
+});
+
 // Error handling middleware
 app.use((err: Error, req: express.Request, res: express.Response, next: express.NextFunction) => {
   console.error(err.stack);
