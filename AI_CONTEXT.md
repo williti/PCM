@@ -32,17 +32,54 @@ _docs/
 
 ## Estado Atual do Projeto
 
-### Últimas Implementações (02/02/2025)
-- Integração do Prisma ORM com PostgreSQL
-- Configuração inicial do banco de dados
-- Criação das migrations para as tabelas principais
-- Atualização das dependências do backend
+### Última Atualização
+Data: 02/02/2025
+Sessão: Integração Frontend-Backend e Documentação
 
-### Próximos Passos
-- Implementar endpoints REST utilizando o Prisma Client
-- Criar validações de dados usando os tipos gerados pelo Prisma
-- Desenvolver testes para as operações do banco de dados
-- Integrar frontend com os novos endpoints
+### Tarefas Pendentes
+Todas as tarefas pendentes estão em /_docs/pending_tasks/
+1. Nova página de login com dashboard demonstrativo (login_page_enhancement.md)
+2. Implementação de websockets
+3. Sistema de cache no frontend
+4. Exportação de relatórios
+
+### Últimas Alterações
+1. Implementada camada de serviços no frontend
+2. Criadas rotas do dashboard no backend
+3. Implementado sistema de fallback para dados mockados
+4. Reorganizada estrutura de documentação
+
+### Próximos Passos Prioritários
+1. Implementar nova página de login (ver /pending_tasks/login_page_enhancement.md)
+2. Melhorar sistema de cache
+3. Implementar websockets
+
+### Decisões Técnicas Recentes
+1. Manter repositório como proprietário (não fork)
+2. Usar sistema de fallback para dados mockados
+3. Consolidar backups em arquivo único
+
+### Arquivos Importantes
+1. Histórico de conversas: /_docs/backups/chat_history.md
+2. Tarefas pendentes: /_docs/pending_tasks/*
+3. Roadmap: /_docs/technical/project_roadmap.md
+4. Referência técnica: /_docs/technical/technical_reference.md
+
+### Stack Atual
+Frontend:
+- React + Vite + TypeScript
+- Material-UI
+- Context API
+
+Backend:
+- Express
+- Prisma ORM
+- PostgreSQL
+
+### Observações
+- Sempre verificar tarefas pendentes em /pending_tasks/
+- Manter backups consolidados em /backups/chat_history.md
+- Seguir padrões definidos em start PCM prompt.txt
 
 ## Arquitetura do Sistema
 

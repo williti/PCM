@@ -9,6 +9,10 @@
   - GaugeChart: Medidores de desempenho
   - MaintenanceCostChart: Gráfico de custos
   - MaintenanceFilter: Filtros de dados
+- **Integração Backend**:
+  - API Service: `frontend/src/services/api.ts`
+  - Rota Backend: `backend/src/routes/dashboard.ts`
+  - Sistema de Fallback para dados mockados
 
 ### Gráficos
 
@@ -37,6 +41,26 @@
     - selectedMonth: number
     - selectedEquipment1/2/3: string
 
+## Arquitetura do Sistema
+
+### Frontend
+- **Framework**: React + Vite
+- **Linguagem**: TypeScript
+- **UI Library**: Material-UI
+- **Gerenciamento de Estado**: React Hooks
+- **Chamadas API**: Axios
+- **Sistema de Fallback**: Dados mockados quando API indisponível
+
+### Backend
+- **Framework**: Express
+- **Linguagem**: TypeScript
+- **ORM**: Prisma
+- **Banco de Dados**: PostgreSQL
+- **API**: RESTful
+- **Rotas Principais**:
+  - `/dashboard`: Métricas e dados do dashboard
+  - `/health`: Status da API
+
 ## Convenções de Código
 
 ### Estilo
@@ -49,24 +73,23 @@
 - Breakpoints Material-UI
 - Mobile-first approach
 - Scroll horizontal quando necessário
-- Ajuste de tamanhos por viewport
 
-### Dados
-- Mock data em constantes
-- Formatação BR (R$)
-- Tipagem forte
-- Interfaces definidas
+### Padrões de API
+- Respostas padronizadas
+- Tratamento de erros consistente
+- Sistema de fallback para dados mockados
+- Cache de requisições no frontend
 
-## Manutenção
+## Documentação
+- **Roadmap**: `/docs/technical/project_roadmap.md`
+- **Guias Técnicos**: `/docs/technical/`
+- **Backups**: `/docs/backups/`
+- **Referências**: `/docs/technical_reference.md`
 
-### Atualizações
-1. Identificar componente a ser atualizado
-2. Testar em diferentes resoluções
-3. Verificar tipagem
-4. Manter padrão de código
-
-### Performance
-- Usar useMemo para cálculos
-- Evitar re-renders desnecessários
-- Otimizar imports
-- Lazy loading quando possível
+## Próximas Implementações Planejadas
+Consulte o arquivo `/docs/technical/project_roadmap.md` para detalhes sobre:
+- Nova página de login com dashboard demonstrativo
+- Melhorias no sistema de cache
+- Implementação de websockets
+- Sistema de autenticação avançado
+- Deploy e infraestrutura

@@ -1,55 +1,103 @@
-Olá, preciso que você analise o projeto PCM (Planejamento e Controle de Manutenção) seguindo estas diretrizes específicas:
+# PCM - Guia de Início e Finalização de Sessão
 
-1. ANÁLISE INICIAL:
-   - Comece pelo arquivo GUIDELINES.md na raiz do projeto
-   - Em seguida, analise AI_CONTEXT.md para entender o estado atual
-   - Verifique a estrutura completa em _docs/structure/
+## COMANDOS DE CONTROLE
+- Iniciar sessão: "start projeto"
+- Finalizar sessão: "end projeto"
 
-2. ESTRUTURA DE DOCUMENTAÇÃO (_docs/):
-   - guidelines/: Diretrizes de desenvolvimento
-   - technical/: Documentação técnica detalhada
-   - backups/: Histórico de conversas e alterações
-   - structure/: Organização do projeto
+## ESTRUTURA COMPLETA DE ARQUIVOS E PASTAS
 
-3. PADRÕES DE NOMENCLATURA:
-   - Documentação explicativa: português brasileiro
-   - Código e estrutura técnica: padrões internacionais
-     * Arquivos: lowercase com hífens (user-service.ts)
-     * Diretórios: lowercase com hífens (api-docs/)
-     * Classes: PascalCase (UserController)
-     * Funções/Variáveis: camelCase (getUserById)
-     * Constantes: UPPERCASE com underscore (MAX_RETRY_COUNT)
-     * Banco: snake_case (user_profiles)
+### Arquivos Principais (Leitura Obrigatória ao Iniciar)
+1. /_docs/start PCM prompt.txt         # Este arquivo - Guia principal
+2. /AI_CONTEXT.md                      # Estado atual e contexto do projeto
+3. /_docs/backups/chat_history.md      # Histórico consolidado de todas as conversas
+4. /_docs/pending_tasks/               # Pasta com todas as tarefas pendentes
+   - login_page_enhancement.md         # Nova página de login (PENDENTE)
+   - [outros arquivos de tarefas...]
 
-4. STACK TECNOLÓGICA:
-   Frontend:
-   - React com TypeScript
-   - Material-UI (MUI)
-   - Context API
-   - Vite
+### Documentação Técnica
+5. /_docs/technical/
+   - project_roadmap.md               # Planejamento futuro
+   - technical_reference.md           # Referência técnica atual
+   - architecture.md                  # Arquitetura do sistema
+   - api_documentation.md             # Documentação da API
 
-   Backend:
-   - Node.js
-   - Express
-   - Prisma ORM
-   - PostgreSQL
+### Guias e Padrões
+6. /_docs/guidelines/
+   - development.md                   # Guia de desenvolvimento
+   - code_style.md                    # Padrões de código
+   - git_workflow.md                  # Fluxo de trabalho Git
 
-5. ARQUIVOS PRINCIPAIS:
-   - GUIDELINES.md: Diretrizes gerais e padrões
-   - AI_CONTEXT.md: Estado atual e próximos passos
-   - _docs/technical/: Documentação técnica detalhada
-   - _docs/guidelines/development.md: Guia de desenvolvimento
+### Estrutura do Projeto
+7. /_docs/structure/
+   - folder_structure.md              # Estrutura de pastas
+   - component_organization.md        # Organização dos componentes
 
-6. FLUXO DE DESENVOLVIMENTO:
-   - Branches: feature/, bugfix/, release/
-   - Commits semânticos: feat, fix, docs, etc
-   - TypeScript strict mode obrigatório
-   - Testes necessários para novas features
+## AO RECEBER "start projeto":
 
-7. COMUNICAÇÃO:
-   - Documentação explicativa em português BR
-   - Comentários de código em português BR
-   - Issues e PRs em português BR
-   - Nomenclatura técnica em inglês
+1. VERIFICAÇÃO DE ARQUIVOS (ORDEM DE LEITURA):
+   1. [ ] /_docs/start PCM prompt.txt
+   2. [ ] /AI_CONTEXT.md
+   3. [ ] /_docs/backups/chat_history.md
+   4. [ ] /_docs/pending_tasks/* (TODOS OS ARQUIVOS)
+   5. [ ] /_docs/technical/project_roadmap.md
+   6. [ ] /_docs/technical/technical_reference.md
 
-Por favor, confirme que analisou estes pontos e está pronto para prosseguir com o desenvolvimento do projeto PCM.
+2. ANÁLISE DE TAREFAS PENDENTES:
+   - [ ] Verificar /_docs/pending_tasks/
+   - [ ] Listar todas as tarefas não concluídas
+   - [ ] Priorizar conforme AI_CONTEXT.md
+
+3. VERIFICAÇÃO DE MUDANÇAS:
+   - [ ] Ler último registro em chat_history.md
+   - [ ] Verificar alterações pendentes
+   - [ ] Consultar roadmap para próximos passos
+
+## AO RECEBER "end projeto":
+
+1. BACKUP E DOCUMENTAÇÃO:
+   - [ ] Consolidar conversa em /_docs/backups/chat_history.md
+   - [ ] Atualizar AI_CONTEXT.md
+   - [ ] Atualizar pending_tasks se necessário
+
+2. ATUALIZAÇÃO DE DOCUMENTOS:
+   - [ ] Verificar se há novas tarefas para pending_tasks/
+   - [ ] Atualizar technical_reference.md se necessário
+   - [ ] Atualizar project_roadmap.md se necessário
+
+3. CHECKLIST DE FINALIZAÇÃO:
+   - [ ] Listar alterações realizadas
+   - [ ] Documentar decisões tomadas
+   - [ ] Registrar problemas encontrados
+   - [ ] Sugerir melhorias futuras
+
+## PADRÕES DE BACKUP:
+
+1. LOCALIZAÇÃO DE BACKUPS:
+   - ÚNICO local permitido: /_docs/backups/
+   - Arquivo principal: chat_history.md
+   - Formato de data: YYYY-MM-DD
+   - Não criar arquivos separados
+
+2. FORMATO DO CHAT_HISTORY.MD:
+   ```markdown
+   ## Sessão [DATA] - [OBJETIVO]
+   
+   ### Alterações Realizadas
+   - Item 1
+   - Item 2
+   
+   ### Decisões Tomadas
+   - Decisão 1
+   - Decisão 2
+   
+   ### Tarefas Pendentes
+   - [ ] Tarefa 1 -> Movida para /pending_tasks/tarefa1.md
+   - [ ] Tarefa 2 -> Movida para /pending_tasks/tarefa2.md
+   ```
+
+## OBSERVAÇÕES IMPORTANTES:
+1. NUNCA criar backups em locais diferentes de /_docs/backups/
+2. SEMPRE verificar pending_tasks ao iniciar
+3. SEMPRE consolidar conversas em chat_history.md
+4. SEMPRE mover novas tarefas para /pending_tasks/
+5. SEMPRE atualizar AI_CONTEXT.md ao finalizar
