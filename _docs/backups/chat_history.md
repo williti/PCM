@@ -85,3 +85,26 @@
 - [ ] Iniciar containers do PostgreSQL e pgAdmin
 - [ ] Executar migrations do Prisma
 - [ ] Popular banco com dados iniciais
+
+## Sessão 2025-02-04 13:10 - Configuração Docker e WSL
+
+### Alterações Realizadas [2025-02-04 13:10]
+- Instalado Docker Desktop versão 27.4.0
+- Configurado WSL2 e componentes de virtualização
+- Resolvido problema de compatibilidade com WSL2
+
+### Problemas Encontrados
+- Erro inicial com WSL2 e virtualização
+- Necessidade de configuração manual de componentes do Windows
+- Necessidade de habilitar virtualização no BIOS
+
+### Próximos Passos
+- [ ] Iniciar containers Docker (PostgreSQL e pgAdmin)
+- [ ] Executar migrations do Prisma
+- [ ] Popular banco com dados iniciais
+- [ ] Implementar formulários e funções dos botões
+
+### Notas Técnicas
+- Docker Desktop instalado e funcionando (versão 27.4.0)
+- WSL2 configurado corretamente
+- Sistema preparado para containers Docker
