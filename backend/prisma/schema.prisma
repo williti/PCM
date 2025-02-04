@@ -8,11 +8,62 @@ generator client {
 }
 
 model User {
-  id        String   @id @default(uuid())
+  id        String         @id @default(uuid())
   name      String
-  email     String   @unique
+  email     String        @unique
   password  String
   role      String
-  createdAt DateTime @default(now())
-  updatedAt DateTime @updatedAt
+  createdAt DateTime      @default(now())
+  updatedAt DateTime      @updatedAt
+  ordens    OrdemServico[]
+}
+
+model OrdemServico {
+  id            String    @id @default(uuid())
+  numero        String    @unique
+  titulo        String
+  descricao     String
+  status        String    // PENDENTE, EM_ANDAMENTO, CONCLUIDA, CANCELADA
+  tipo          String    // CORRETIVA, PREVENTIVA, PREDITIVA
+  prioridade    String    // BAIXA, MEDIA, ALTA, CRITICA
+  critica       Boolean   @default(false)
+  custo         Float     @default(0)
+  area          String    // MECANICA, ELETRICA, HIDRAULICA, etc
+  equipamentoId String
+  responsavelId String
+  dataAbertura  DateTime  @default(now())
+  dataPrevisao  DateTime?
+  dataConclusao DateTime?
+  equipamento   Equipamento @relation(fields: [equipamentoId], references: [id])
+  responsavel   User       @relation(fields: [responsavelId], references: [id])
+  createdAt     DateTime   @default(now())
+  updatedAt     DateTime   @updatedAt
+}
+
+model Equipamento {
+  id            String         @id @default(uuid())
+  nome          String
+  codigo        String        @unique
+  descricao     String
+  area          String
+  status        String        // ATIVO, INATIVO, MANUTENCAO
+  criticidade   String        // BAIXA, MEDIA, ALTA, CRITICA
+  ordens        OrdemServico[]
+  metricas      Metrica[]
+  createdAt     DateTime      @default(now())
+  updatedAt     DateTime      @updatedAt
+}
+
+model Metrica {
+  id                    String      @id @default(uuid())
+  equipamentoId         String
+  mtbf                  Float       // Mean Time Between Failures (horas)
+  mttr                  Float       // Mean Time To Repair (horas)
+  disponibilidade       Float       // Percentual de disponibilidade
+  metaZeroFalhas       Float       // Meta de zero falhas (percentual)
+  osProgramadasConcluidas Float    // Percentual de OS programadas concluídas
+  dataAtualizacao      DateTime    @default(now())
+  equipamento          Equipamento @relation(fields: [equipamentoId], references: [id])
+  createdAt            DateTime    @default(now())
+  updatedAt            DateTime    @updatedAt
 }

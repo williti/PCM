@@ -39,6 +39,7 @@
 - [Project Roadmap](./_docs/technical/project_roadmap.md)
 - [Login Page Enhancement](./_docs/technical/login_page_enhancement.md)
 - [Technical Reference](./_docs/technical_reference.md)
+
 ## Sessão 2025-02-03 - Configuração de Servidores e Integração
 
 ### Alterações Realizadas
@@ -60,3 +61,27 @@
 - [ ] Configurar PostgreSQL e variáveis de ambiente
 - [ ] Completar migrações do Prisma
 - [ ] Implementar nova página de login
+
+## Sessão 2025-02-04 09:17 - Configuração do Ambiente de Desenvolvimento
+
+### Alterações Realizadas [2025-02-04 09:17]
+- Criado schema do Prisma com todas as tabelas necessárias (User, OrdemServico, Equipamento, Metrica)
+- Configurado docker-compose.yml para ambiente de desenvolvimento
+- Atualizado protocolo de end projeto com instruções de Git
+- Criado arquivo seed.ts para população inicial do banco
+
+### Decisões Tomadas [2025-02-04 09:17]
+- Utilizar Docker para ambiente de desenvolvimento
+- Estruturar banco de dados com 4 tabelas principais
+- Implementar pgAdmin para gerenciamento visual do banco
+- Manter dados persistentes com volume Docker
+
+### Problemas Encontrados
+- PostgreSQL local não estava configurado
+- Necessidade de instalar Docker Desktop
+
+### Próximos Passos
+- [ ] Instalar Docker Desktop
+- [ ] Iniciar containers do PostgreSQL e pgAdmin
+- [ ] Executar migrations do Prisma
+- [ ] Popular banco com dados iniciais

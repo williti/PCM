@@ -1,24 +1,32 @@
-## Estado Atual do Projeto (2025-02-03)
+## Estado Atual do Projeto (2025-02-04)
 
 ### Infraestrutura
 - Frontend: React + Vite (http://localhost:5173)
 - Backend: Node.js + TypeScript (http://localhost:3000)
-- Database: PostgreSQL (pendente configuração)
+- Database: PostgreSQL em Docker (pendente instalação Docker Desktop)
+- Gerenciamento BD: pgAdmin em Docker (pendente)
 
 ### Progresso
 - Servidor frontend configurado e rodando
 - Endpoint de teste implementado no backend
-- Pendente: configuração do PostgreSQL e Prisma
+- Schema do Prisma definido com todas as tabelas
+- Docker Compose configurado para ambiente de desenvolvimento
 
 ### Próximos Passos
-1. Configurar PostgreSQL local
-2. Completar setup do Prisma ORM
-3. Implementar página de login conforme especificações
+1. Instalar Docker Desktop
+2. Iniciar ambiente Docker (PostgreSQL + pgAdmin)
+3. Executar migrations do Prisma
+4. Popular banco com dados iniciais
+5. Implementar página de login conforme especificações
 
 ### Observações Técnicas
-- Necessário configurar DATABASE_URL no .env
-- Migrations do Prisma pendentes
-- Integração frontend/backend em andamento
+- Docker Compose configurado com PostgreSQL e pgAdmin
+- Schema do Prisma com 4 tabelas principais:
+  - User (autenticação)
+  - OrdemServico (gestão de manutenção)
+  - Equipamento (cadastro de equipamentos)
+  - Metrica (indicadores de performance)
+- Volume Docker configurado para persistência de dados
 
 ### Padrões de Desenvolvimento
 #### Commits

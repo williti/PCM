@@ -84,6 +84,14 @@
    - [ ] Incluir todas alterações relevantes nos tópicos
    - [ ] Referenciar números de issues quando aplicável
 
+5. SALVAMENTO NO REPOSITÓRIO:
+   - [ ] Verificar status do Git (git status)
+   - [ ] Adicionar arquivos modificados (git add)
+   - [ ] Realizar commit com mensagem padronizada
+   - [ ] Verificar se há conflitos com remoto (git pull)
+   - [ ] Enviar alterações para o repositório (git push)
+   - [ ] Confirmar que o push foi bem-sucedido
+
 ## PADRÕES DE BACKUP:
 
 1. LOCALIZAÇÃO DE BACKUPS:
@@ -94,13 +102,13 @@
 
 2. FORMATO DO CHAT_HISTORY.MD:
    ```markdown
-   ## Sessão [DATA] - [OBJETIVO]
+   ## Sessão [YYYY-MM-DD HH:mm] - [OBJETIVO]
    
-   ### Alterações Realizadas
+   ### Alterações Realizadas [YYYY-MM-DD HH:mm]
    - Item 1
    - Item 2
    
-   ### Decisões Tomadas
+   ### Decisões Tomadas [YYYY-MM-DD HH:mm]
    - Decisão 1
    - Decisão 2
    
