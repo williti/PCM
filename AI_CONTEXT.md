@@ -1,9 +1,9 @@
-## Estado Atual do Projeto (2025-02-04 13:10)
+## Estado Atual do Projeto (2025-02-07)
 
 ### Infraestrutura
 - Frontend: React + Vite (http://localhost:5173)
 - Backend: Node.js + TypeScript (http://localhost:3000)
-- Database: PostgreSQL em Docker (configuração pendente)
+- Database: PostgreSQL em Docker (configuração concluída)
 - Docker: Desktop v27.4.0 instalado e configurado
 - WSL2: Instalado e configurado corretamente
 
@@ -13,13 +13,18 @@
 - Schema do Prisma definido com todas as tabelas
 - Docker Desktop instalado e configurado
 - WSL2 e virtualização configurados corretamente
+- Banco de dados PostgreSQL configurado e rodando em container Docker
+- pgAdmin4 configurado e acessível em http://localhost:5050
+- Três tabelas principais criadas:
+  - User (usuários do sistema)
+  - Equipamento (cadastro de equipamentos)
+  - OrdemServico (registro de manutenções)
 
 ### Próximos Passos
-1. Iniciar containers Docker (PostgreSQL + pgAdmin)
-2. Executar migrations do Prisma
-3. Popular banco com dados iniciais
-4. Implementar formulários e funções dos botões
-5. Implementar página de login conforme especificações
+1. Implementar endpoints da API REST
+2. Desenvolver interface do usuário em React
+3. Configurar sistema de autenticação
+4. Implementar CRUD de equipamentos
 
 ### Observações Técnicas
 - Docker Compose configurado com PostgreSQL e pgAdmin
@@ -30,6 +35,7 @@
   - Metrica (indicadores de performance)
 - Volume Docker configurado para persistência de dados
 - WSL2 e virtualização habilitados para suporte a Docker
+- Documentação completa em `_docs/guides/database_setup_guide.md`
 
 ### Padrões de Desenvolvimento
 #### Commits

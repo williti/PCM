@@ -126,3 +126,34 @@
 ### Em Andamento
 - Configuração do ambiente de banco de dados
 - Setup dos containers Docker
+
+## Sessão 2025-02-07 10:30 - Configuração do Banco de Dados
+
+### Objetivos Alcançados
+- ✅ Containers Docker configurados e rodando
+- ✅ pgAdmin configurado e acessível
+- ✅ Tabelas do banco criadas com sucesso
+- ✅ Documentação detalhada criada
+
+### Detalhes Técnicos
+- Docker Desktop v27.4.0
+- PostgreSQL latest
+- pgAdmin4 latest
+- Prisma Client v6.3.1
+
+### Arquivos Criados/Modificados
+- `_docs/guides/database_setup_guide.md`: Guia detalhado de configuração
+- `backend/.env`: Configuração da conexão com o banco
+- `backend/init.sql`: Script SQL para criação das tabelas
+- `docker-compose.yml`: Configuração dos containers
+
+### Próximos Passos
+- [ ] Implementar endpoints da API
+- [ ] Desenvolver interface do usuário
+- [ ] Configurar autenticação
+- [ ] Implementar CRUD de equipamentos
+
+### Notas Importantes
+- Manter Docker Desktop rodando durante o desenvolvimento
+- Usar pgAdmin para verificar dados e estrutura do banco
+- Seguir o guia em `database_setup_guide.md` para futuras configurações
