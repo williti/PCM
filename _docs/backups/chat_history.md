@@ -108,3 +108,21 @@
 - Docker Desktop instalado e funcionando (versão 27.4.0)
 - WSL2 configurado corretamente
 - Sistema preparado para containers Docker
+
+## Sessão 2025-02-07 07:30 - Configuração do Banco de Dados
+
+### Objetivos da Sessão
+- Iniciar containers Docker (PostgreSQL e pgAdmin)
+- Executar migrations do Prisma
+- Popular banco com dados iniciais
+- Implementar formulários e funções dos botões
+
+### Estado Inicial
+- Docker Desktop v27.4.0 instalado e configurado
+- WSL2 funcionando corretamente
+- Ambiente preparado para containers Docker
+- Checklist detalhado em `_docs/pending_tasks/database_setup.md`
+
+### Em Andamento
+- Configuração do ambiente de banco de dados
+- Setup dos containers Docker
