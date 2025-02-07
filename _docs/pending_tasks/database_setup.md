@@ -2,6 +2,7 @@
 
 ## Nota sobre Pull Request
 Este arquivo faz parte da feature branch `feature/database-setup` e será enviado como PR para o repositório principal.
+Autor: williti (williti@resiplac.com.br)
 
 ## Status: PENDENTE
 Data de Criação: 2025-02-04 13:12
